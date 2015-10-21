@@ -2,7 +2,9 @@
 
 @headline-font: 'Oswald', sans-serif;
 
-.action-bg() when (iscolor(@action-bg)) { background-color: @action-bg !important; }
+@action-bg: #123456;
+
+.action-bg() { background-color: @action-bg !important; }
 .action-fg() when (iscolor(@action-fg)) { color: @action-fg !important; }
 .title-fg() when (iscolor(@title-fg)) { color: @title-fg !important; }
 

@@ -89,7 +89,6 @@ add_action('customize_register', function($wpc) {
 if (class_exists('WPLessPlugin')) {
     $less = WPLessPlugin::getInstance();
 
-    theme_mod_to_less_var($less, 'action-bg');
     theme_mod_to_less_var($less, 'action-fg');
     theme_mod_to_less_var($less, 'title-fg');
 
