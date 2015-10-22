@@ -137,17 +137,24 @@ class NewsBlog_Widget extends \WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
         $rowcount = $instance['rowcount'];
-        $news = get_posts([
+
+        $news_q = [
             'numberposts' => $rowcount * 2,
-            'category_name' => $instance['category'],
             'post_type' => 'news',
-        ]);
-        $blogs = get_posts([
+        ];
+        $blogs_q = [
             'numberposts' => $rowcount,
-            'category_name' => $instance['category'],
             'post_type' => 'post',
-        ]);
-		echo $args['before_widget'];
+        ];
+        if ( ! empty( $instance['category'] ) ) {
+            $news_q['category_name'] = $instance['category'];
+            $blogs_q['category_name'] = $instance['category'];
+        }
+
+        $news = get_posts($news_q);
+        $blogs = get_posts($blogs_q);
+
+        echo $args['before_widget'];
         ?>
         <div class="row tt-newsblog-widget">
             <div class="col-xs-10 col-xs-offset-1">
@@ -193,7 +200,7 @@ class NewsBlog_Widget extends \WP_Widget {
         </div>
         <?php
 
-		echo $args['after_widget'];
+            echo $args['after_widget'];
 	}
 
 	/**
