@@ -2,23 +2,37 @@
 
 @headline-font: 'Oswald', sans-serif;
 
-@action-bg: #123456;
+@action-bg: #ebc511;
+@action-fg: #ffffff;
+@title-fg: #192b4e;
+
+@nav-main-bg: #192b4e;
+@nav-main-fg: #ffffff;
+@nav-secondary-bg: #e5f3b2;
+@nav-secondary-fg: #141c26;
+
+@contact-bg: #017aaf;
+@contact-fg: #ffffff;
+@contact-action: @action-bg;
+
+@footer-bg: #141c26;
+@footer-fg: #ffffff;
 
 .action-bg() { background-color: @action-bg !important; }
-.action-fg() when (iscolor(@action-fg)) { color: @action-fg !important; }
-.title-fg() when (iscolor(@title-fg)) { color: @title-fg !important; }
+.action-fg() { color: @action-fg !important; }
+.title-fg() { color: @title-fg !important; }
 
-.nav-main-bg() when (iscolor(@nav-main-bg)) { background-color: @nav-main-bg; }
-.nav-main-fg() when (iscolor(@nav-main-fg)) { color: @nav-main-fg; }
-.nav-secondary-bg() when (iscolor(@nav-secondary-bg)) { background-color: @nav-secondary-bg; }
-.nav-secondary-fg() when (iscolor(@nav-secondary-fg)) { color: @nav-secondary-fg; }
+.nav-main-bg() { background-color: @nav-main-bg; }
+.nav-main-fg() { color: @nav-main-fg; }
+.nav-secondary-bg() { background-color: @nav-secondary-bg; }
+.nav-secondary-fg() { color: @nav-secondary-fg; }
 
-.contact-bg() when (iscolor(@contact-bg)) { background-color: @contact-bg; }
-.contact-fg() when (iscolor(@contact-fg)) { color: @contact-fg; }
-.contact-action() when (iscolor(@contact-action)) { color: @contact-action; }
+.contact-bg() { background-color: @contact-bg; }
+.contact-fg() { color: @contact-fg; }
+.contact-action() { color: @contact-action; }
 
-.footer-bg() when (iscolor(@footer-bg)) { background-color: @footer-bg; }
-.footer-fg() when (iscolor(@footer-fg)) { color: @footer-fg; }
+.footer-bg() { background-color: @footer-bg; }
+.footer-fg() { color: @footer-fg; }
 
 header > img {
     max-width: @header-img-width;

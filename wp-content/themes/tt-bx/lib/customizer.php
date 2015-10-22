@@ -9,14 +9,6 @@ add_action('customize_register', function($wpc) {
     $wpc->add_section('home', ['title' => 'Home Page']);
 
     /*
-     * General Colors
-     */
-
-    add_color_control($wpc, 'colors', 'action-bg', 'Action Item Background');
-    add_color_control($wpc, 'colors', 'action-fg', 'Action Item Foreground');
-    add_color_control($wpc, 'colors', 'title-fg', 'Title Text Color');
-
-    /*
      * Header
      */
 
@@ -53,23 +45,12 @@ add_action('customize_register', function($wpc) {
             'type' => 'number',
     ]));
 
-    add_color_control($wpc, 'nav', 'nav-main-bg', 'Main Nav Background Color');
-    add_color_control($wpc, 'nav', 'nav-main-fg', 'Main Nav Foreground Color');
-    add_color_control($wpc, 'nav', 'nav-secondary-bg', 'Secondary Nav Background Color');
-    add_color_control($wpc, 'nav', 'nav-secondary-fg', 'Secondary Nav Foreground Color');
-
     /*
      * Footer
      */
 
-    add_color_control($wpc, 'footer', 'contact-bg', 'Contact Background Color');
-    add_color_control($wpc, 'footer', 'contact-fg', 'Contact Foreground Color');
-    add_color_control($wpc, 'footer', 'contact-action', 'Contact Action Color');
     add_color_control($wpc, 'footer', 'contact-env-bg', 'Contact Envelope Background Color');
     add_color_control($wpc, 'footer', 'contact-env-fg', 'Contact Envelope Foreground Color');
-
-    add_color_control($wpc, 'footer', 'footer-bg', 'Footer Background Color');
-    add_color_control($wpc, 'footer', 'footer-fg', 'Footer Foreground Color');
 
     /*
      * Home Page
@@ -89,28 +70,14 @@ add_action('customize_register', function($wpc) {
 if (class_exists('WPLessPlugin')) {
     $less = WPLessPlugin::getInstance();
 
-    theme_mod_to_less_var($less, 'action-fg');
-    theme_mod_to_less_var($less, 'title-fg');
-
     $less->addVariable('header-img-width',
         get_theme_mod('header-img-width', 100) . '%');
 
     $less->addVariable('nav-padding',
         get_theme_mod('nav-padding', 2) . 'em');
 
-    theme_mod_to_less_var($less, 'nav-main-bg');
-    theme_mod_to_less_var($less, 'nav-main-fg');
-    theme_mod_to_less_var($less, 'nav-secondary-bg');
-    theme_mod_to_less_var($less, 'nav-secondary-fg');
-
-    theme_mod_to_less_var($less, 'contact-bg');
-    theme_mod_to_less_var($less, 'contact-fg');
-    theme_mod_to_less_var($less, 'contact-action');
     theme_mod_to_less_var($less, 'contact-env-bg', 'lightgray');
     theme_mod_to_less_var($less, 'contact-env-fg', 'darkgray');
-
-    theme_mod_to_less_var($less, 'footer-bg');
-    theme_mod_to_less_var($less, 'footer-fg');
 
     theme_mod_to_less_var($less, 'home-header-img');
     theme_mod_to_less_var($less, 'home-header-fg');
