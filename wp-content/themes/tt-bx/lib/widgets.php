@@ -138,65 +138,46 @@ class NewsBlog_Widget extends \WP_Widget {
 	public function widget( $args, $instance ) {
         $rowcount = $instance['rowcount'];
 
-        $news_q = [
-            'numberposts' => $rowcount * 2,
-            'post_type' => 'news',
-        ];
-        $blogs_q = [
-            'numberposts' => $rowcount,
+        $criteria = [
+            'numberposts' => $rowcount * 3,
             'post_type' => 'post',
         ];
-        if ( ! empty( $instance['category'] ) ) {
-            $news_q['category_name'] = $instance['category'];
-            $blogs_q['category_name'] = $instance['category'];
-        }
+        if ( ! empty( $instance['category'] ) )
+            $criteria['category_name'] = $instance['category'];
+        if ( ! empty( $instance['offset'] ) )
+            $criteria['offset'] = $instance['offset'];
 
-        $news = get_posts($news_q);
-        $blogs = get_posts($blogs_q);
+        $blogs = get_posts($criteria);
 
         echo $args['before_widget'];
         ?>
         <div class="row tt-newsblog-widget">
             <div class="col-xs-10 col-xs-offset-1">
                 <div class="row">
-                    <div class="col-sm-8">
-                        <span class="header">News</span>
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <?php
-                                    $i = 0;
-                                    foreach ($news as $p) {
-                                        if ($i > 0 && $i % $rowcount == 0)
-                                            echo '</div><div class="col-sm-5">';
-                                        $datestr = date_format(date_create($p->post_date), 'm.d.y');
-                                        $link = get_permalink($p->ID);
-                                        ?>
-                                            <div style="padding-left: 4em; text-indent: -4em;">
-                                            <time><?php echo $datestr; ?></time>
-                                            <a href="<?php echo $link; ?>"><?php echo $p->post_title; ?></a>
-                                            </div>
-                                        <?php
-                                        $i++;
-                                    }
-                                ?>
-                            </div>
-                        </div>
-                    </div><!--/.col-sm-8-->
-                    <div class="col-sm-4">
-                        <span class="header">Blog</span><br>
-                        <?php
-                            foreach ($blogs as $p) {
-                                $datestr = date_format(date_create($p->post_date), 'm.d.y');
-                                $link = get_permalink($p->ID);
-                                ?>
-                                    <div style="padding-left: 4em; text-indent: -4em;">
-                                    <time><?php echo $datestr; ?></time>
-                                    <a href="<?php echo $link; ?>"><?php echo $p->post_title; ?></a>
-                                    </div>
-                                <?php
-                            }
-                        ?>
-                    </div><!--/.col-sm-4-->
+
+                <div class="col-sm-4">
+		<?php
+		    $i = 0;
+		    foreach ($blogs as $p) {
+			if ($i > 0 && $i % $rowcount == 0)
+			    echo '</div><!--/.col-sm-4--><div class="col-sm-4">';
+
+                        //<!--<span class="header">Blog</span><br>-->
+                            $datestr = date_format(date_create($p->post_date), 'm.d.y');
+                            $link = get_permalink($p->ID);
+                            ?>
+                                <p style="padding-left: 2em; text-indent: -2em;">
+                                <a href="<?php echo $link; ?>">
+				<time style="font-weight: bold;"><?php echo $datestr; ?>:</time>
+				<?php echo $p->post_title; ?>
+				</a>
+                                </p>
+			    <?php
+			$i++;
+                    }
+		?>
+                </div><!--/.col-sm-4-->
+
                 </div>
             </div>
         </div>
@@ -215,16 +196,22 @@ class NewsBlog_Widget extends \WP_Widget {
 	public function form( $instance ) {
 		?>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'rowcount' ); ?>"><?php _e( 'Number of Rows:' ); ?></label> 
+		<label for="<?php echo $this->get_field_id( 'rowcount' ); ?>"><?php _e( 'Number of Rows:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'rowcount' ); ?>"
             name="<?php echo $this->get_field_name( 'rowcount' ); ?>" type="text"
             value="<?php echo esc_attr( $instance['rowcount'] ); ?>">
 		</p>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php _e( 'Category:' ); ?></label> 
+		<label for="<?php echo $this->get_field_id( 'category' ); ?>"><?php _e( 'Category:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'category' ); ?>"
             name="<?php echo $this->get_field_name( 'category' ); ?>" type="text"
             value="<?php echo esc_attr( $instance['category'] ); ?>">
+		</p>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'offset' ); ?>"><?php _e( 'Offset Count:' ); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'offset' ); ?>"
+            name="<?php echo $this->get_field_name( 'offset' ); ?>" type="number"
+            value="<?php echo esc_attr( $instance['offset'] ); ?>">
 		</p>
 		<?php 
 	}
@@ -419,20 +406,20 @@ class Headline_Widget extends \WP_Widget {
 	public function form( $instance ) {
 		?>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'post-type' ); ?>"><?php _e( 'Post Type:' ); ?></label> 
+		<label for="<?php echo $this->get_field_id( 'post-type' ); ?>"><?php _e( 'Post Type:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'post-type' ); ?>"
             name="<?php echo $this->get_field_name( 'post-type' ); ?>" type="text"
             value="<?php echo esc_attr( $instance['post-type'] ); ?>">
 		</p>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php _e( 'Order By:' ); ?></label> 
+		<label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php _e( 'Order By:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'orderby' ); ?>"
             name="<?php echo $this->get_field_name( 'orderby' ); ?>" type="text"
             value="<?php echo esc_attr( $instance['orderby'] ); ?>">
 		</p>
 		<p>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'offset' ); ?>"><?php _e( 'Offset Count:' ); ?></label> 
+		<label for="<?php echo $this->get_field_id( 'offset' ); ?>"><?php _e( 'Offset Count:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'offset' ); ?>"
             name="<?php echo $this->get_field_name( 'offset' ); ?>" type="number"
             value="<?php echo esc_attr( $instance['offset'] ); ?>">
