@@ -369,29 +369,41 @@ class Headline_Widget extends \WP_Widget {
 	 * @param array $instance Saved values from database.
 	 */
 	public function widget( $args, $instance ) {
-        $testimonials = get_posts([
-            'numberposts' => 1,
-            'post_type' => $instance['post-type'],
-            'orderby' => 'rand',
-        ]);
-        $p = $testimonials[0];
+        $criteria = [ 'numberposts' => 1 ];
+
+        if ( !empty ( $instance['post-type'] ) )
+            $criteria['post_type'] = $instance['post-type'];
+
+        if ( !empty ( $instance['orderby'] ) )
+            $criteria['orderby'] = $instance['orderby'];
+
+        if ( !empty ( $instance['offset'] ) )
+            $criteria['offset'] = $instance['offset'];
+
+        $posts = get_posts($criteria);
+        $p = $posts[0];
+
         $excerpt = tt_get_excerpt($p);
         $link = get_permalink($p->ID);
         $fi_url = wp_get_attachment_image_src( get_post_thumbnail_id($p->ID), 'hard512' )[0];
 		echo $args['before_widget'];
         ?>
         <div class="row tt-headline-widget" style="background-color: <?php echo $instance['background-color']; ?>">
-            <div class="col-xs-2 col-xs-offset-1 image">
+	    <div class="col-xs-1"></div>
+	    <?php if ( isset($fi_url) ): ?>
+            <div class="col-xs-2 image">
                 <a href="<?php echo $link; ?>">
                     <img class="img-responsive img-circle" src="<?php echo $fi_url; ?>" />
                 </a>
             </div>
-            <div class="col-xs-8 content">
+	    <?php endif; ?>
+            <div class="col-xs-<?php echo isset($fi_url) ? 8 : 10; ?> content">
                 <a href="<?php echo $link; ?>">
                     <span class="title"><?php echo $p->post_title; ?></span>
                     <?php echo $excerpt; ?>
                 </a>
             </div>
+	    <div class="col-xs-1"></div>
         </div>
         <?php
 		echo $args['after_widget'];
@@ -411,6 +423,19 @@ class Headline_Widget extends \WP_Widget {
 		<input class="widefat" id="<?php echo $this->get_field_id( 'post-type' ); ?>"
             name="<?php echo $this->get_field_name( 'post-type' ); ?>" type="text"
             value="<?php echo esc_attr( $instance['post-type'] ); ?>">
+		</p>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'orderby' ); ?>"><?php _e( 'Order By:' ); ?></label> 
+		<input class="widefat" id="<?php echo $this->get_field_id( 'orderby' ); ?>"
+            name="<?php echo $this->get_field_name( 'orderby' ); ?>" type="text"
+            value="<?php echo esc_attr( $instance['orderby'] ); ?>">
+		</p>
+		<p>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'offset' ); ?>"><?php _e( 'Offset Count:' ); ?></label> 
+		<input class="widefat" id="<?php echo $this->get_field_id( 'offset' ); ?>"
+            name="<?php echo $this->get_field_name( 'offset' ); ?>" type="number"
+            value="<?php echo esc_attr( $instance['offset'] ); ?>">
 		</p>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'background-color' ); ?>"><?php _e( 'Background Color:' ); ?></label> 
