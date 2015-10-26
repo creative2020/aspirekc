@@ -25,6 +25,9 @@ class Text_Widget extends \WP_Widget {
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
 
+		if ( !empty( $instance['image'] ) ) {
+			echo '<img class="head" src="' . $instance['image'] . '">';
+		}
 		echo '<span class="header">' . $instance['title'] . '</span><br>';
 
 		echo $instance['line1'] . '<br>';
@@ -53,6 +56,12 @@ class Text_Widget extends \WP_Widget {
 	 */
 	public function form( $instance ) {
 		?>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php _e( 'Image:' ); ?></label> 
+		<input class="widefat" id="<?php echo $this->get_field_id( 'image' ); ?>"
+            name="<?php echo $this->get_field_name( 'image' ); ?>" type="text"
+            value="<?php echo esc_attr( $instance['image'] ); ?>">
+		</p>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Heading:' ); ?></label> 
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
@@ -84,28 +93,6 @@ class Text_Widget extends \WP_Widget {
             value="<?php echo esc_attr( $instance['footer-ref'] ); ?>">
 		</p>
 		<?php 
-	}
-
-	/**
-	 * Sanitize widget form values as they are saved.
-	 *
-	 * @see WP_Widget::update()
-	 *
-	 * @param array $new_instance Values just sent to be saved.
-	 * @param array $old_instance Previously saved values from database.
-	 *
-	 * @return array Updated safe values to be saved.
-	 */
-	public function update( $new_instance, $old_instance ) {
-		$instance = array();
-		$instance['title'] = strip_tags( $new_instance['title'] );
-		$instance['line1'] = strip_tags( $new_instance['line1'] );
-		$instance['line2'] = strip_tags( $new_instance['line2'] );
-		$instance['line3'] = $new_instance['line3'];
-		$instance['footer'] = strip_tags( $new_instance['footer'] );
-		$instance['footer-ref'] = strip_tags( $new_instance['footer-ref'] );
-
-		return $instance;
 	}
 
 } // class Text_Widget
