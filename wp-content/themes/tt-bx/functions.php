@@ -109,4 +109,8 @@ add_action('wp_enqueue_scripts', function() {
 
     wp_enqueue_style('google-fonts',
         '//fonts.googleapis.com/css?family=Oswald:400,700');
+
+    wp_enqueue_script('width-limiter',
+        get_stylesheet_directory_uri().'/width-limiter.js',
+        ['jquery'], false, false);
 });
