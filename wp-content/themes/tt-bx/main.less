@@ -137,7 +137,6 @@ footer > .textwidget,
 }
 
 footer > .tt-newsblog-widget,
-main > .tt-threebox-widget,
 main > .tt-headline-widget
 {
     padding-top: 1.5rem;
@@ -170,7 +169,6 @@ footer > .textwidget > .row
  */
 
 .footer-contact-container img.head {
-	float: left;
 	max-width: 25%;
 	margin-top: 1rem;
 	margin-right: 1rem;
@@ -225,13 +223,9 @@ footer > .textwidget > .row
     .home-header-img();
     .home-header-fg();
     font-family: @headline-font;
-    .widgettitle {
-        margin-left: 10%;
-        margin-right: 10%;
-    }
     .textwidget {
-        margin-left: 15%;
-        margin-right: 10%;
+        margin-left: 1em;
+        margin-right: 1em;
     }
     .widget {
         padding-top: 2em;
@@ -302,8 +296,6 @@ footer > .textwidget > .row
     .content {
         line-height: 1.75;
         vertical-align: middle;
-        padding-left: 2em;
-        padding-right: 2em;
         .title {
             font-family: @headline-font;
             font-size: 200%;
@@ -342,13 +334,13 @@ footer > .textwidget > .row
     .middle {
         background-color: #D8D5C3;
     }
+	div[class^="col-"] {
+		padding-top: 1em;
+		padding-bottom: 1em;
+	}
     a {
         text-decoration: none;
         color: black;
-    }
-    [class^="col-"] > * {
-        margin-left: 10%;
-        margin-right: 10%;
     }
     .title {
         font-family: @headline-font;

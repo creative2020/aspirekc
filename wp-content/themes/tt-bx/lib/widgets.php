@@ -139,9 +139,6 @@ class NewsBlog_Widget extends \WP_Widget {
         echo $args['before_widget'];
         ?>
         <div class="row tt-newsblog-widget">
-            <div class="col-xs-10 col-xs-offset-1">
-                <div class="row">
-
                 <div class="col-sm-4">
 		<?php
 		    $i = 0;
@@ -164,9 +161,6 @@ class NewsBlog_Widget extends \WP_Widget {
                     }
 		?>
                 </div><!--/.col-sm-4-->
-
-                </div>
-            </div>
         </div>
         <?php
 
@@ -244,8 +238,8 @@ class Testimonial_Widget extends \WP_Widget {
         ?>
         <?php if($display_style=='wide') { ?>
         <div class="row tt-headline-widget" style="background-color: <?php echo $instance['background-color']; ?>">
-            <div class="col-xs-1 col-xs-offset-1 symbol"><i class="fa fa-quote-left" style="color: <?php echo $instance['quote-color']; ?>;"></i></div>
-            <div class="col-xs-7 content">
+            <div class="col-xs-1 symbol"><i class="fa fa-quote-left" style="color: <?php echo $instance['quote-color']; ?>;"></i></div>
+            <div class="col-xs-9 content">
                 <a href="<?php echo $link; ?>">
                     <span class="title"><?php echo $p->post_title; ?></span>
                     <?php echo $excerpt; ?>
@@ -363,7 +357,6 @@ class Headline_Widget extends \WP_Widget {
 		echo $args['before_widget'];
         ?>
         <div class="row tt-headline-widget" style="background-color: <?php echo $instance['background-color']; ?>">
-	    <div class="col-xs-1"></div>
 	    <?php if ( isset($fi_url) ): ?>
             <div class="col-xs-2 image">
                 <a href="<?php echo $link; ?>">
@@ -371,13 +364,12 @@ class Headline_Widget extends \WP_Widget {
                 </a>
             </div>
 	    <?php endif; ?>
-            <div class="col-xs-<?php echo isset($fi_url) ? 8 : 10; ?> content">
+            <div class="col-xs-<?php echo isset($fi_url) ? 10 : 12; ?> content">
                 <a href="<?php echo $link; ?>">
                     <span class="title"><?php echo $p->post_title; ?></span>
                     <?php echo $excerpt; ?>
                 </a>
             </div>
-	    <div class="col-xs-1"></div>
         </div>
         <?php
 		echo $args['after_widget'];
@@ -450,17 +442,14 @@ class ThreeBox_Widget extends \WP_Widget {
 		echo $args['before_widget'];
         ?>
         <div class="row tt-threebox-widget">
-            <div class="col-sm-4"><div>
+            <div class="col-sm-4">
                 <?php echo apply_filters('widget_text', $instance['a-content']); ?>
             </div>
-            </div>
-            <div class="col-sm-4 middle"><div>
+            <div class="col-sm-4 middle">
                 <?php echo apply_filters('widget_text', $instance['b-content']); ?>
             </div>
-            </div>
-            <div class="col-sm-4"><div>
+            <div class="col-sm-4">
                 <?php echo apply_filters('widget_text', $instance['c-content']); ?>
-            </div>
             </div>
         </div>
         <?php
