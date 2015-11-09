@@ -26,13 +26,13 @@ class Text_Widget extends \WP_Widget {
 		echo $args['before_widget'];
 
 		if ( !empty( $instance['image'] ) ) {
-			echo '<img class="head" src="' . $instance['image'] . '">';
+			echo '<img class="head" src="' . $instance['image'] . '" style="vertical-align: top;">';
 		}
 		echo '<span class="header">' . $instance['title'] . '</span><br>';
 
-		echo $instance['line1'] . '<br>';
-		echo $instance['line2'] . '<br>';
-		echo $instance['line3'] . '<br>';
+		if ( !empty( $instance['line1'] ) ) echo $instance['line1'] . '<br>';
+		if ( !empty( $instance['line2'] ) ) echo $instance['line2'] . '<br>';
+		if ( !empty( $instance['line3'] ) ) echo $instance['line3'] . '<br>';
 
 		echo '<span class="footer">';
         if ( ! empty($instance['footer-ref'] ) ) {
