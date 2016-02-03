@@ -9,10 +9,10 @@
 <main>
 
 <div class="row">
-    <div class="col-sm-8 post-content">
+    <div class="col-sm-9 post-content">
         <?php the_content(); ?>
     </div>
-    <div class="col-sm-4 post-sidebar">
+    <div class="col-sm-3 post-sidebar">
         <?php dynamic_sidebar('tt-sidebar-post-sidebar'); ?>
     </div>
 </div>

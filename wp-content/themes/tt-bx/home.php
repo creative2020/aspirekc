@@ -1,25 +1,24 @@
 <?php get_header(); ?>
 
+<?php while ( have_posts() ) : the_post(); ?>
+
+<?php dynamic_sidebar('tt-sidebar-post-header'); ?>
+
+<?php get_template_part('section', 'navbar-secondary'); ?>
+
 <main>
 
-<div id="home-top-container" class="row">
-
-    <div class="col-sm-4 widget">
-        <?php dynamic_sidebar('tt-sidebar-home-top-left'); ?>
+<div class="row">
+    <div class="col-sm-9 post-content">
+        <?php the_content(); ?>
     </div>
-
-    <div class="col-sm-4 widget center">
-        <?php dynamic_sidebar('tt-sidebar-home-top-center'); ?>
+    <div class="col-sm-3 post-sidebar">
+        <?php dynamic_sidebar('tt-sidebar-post-sidebar'); ?>
     </div>
-
-    <div class="col-sm-4 widget">
-        <?php dynamic_sidebar('tt-sidebar-home-top-right'); ?>
-    </div>
-
 </div>
 
-<?php dynamic_sidebar('tt-sidebar-home-content'); ?>
-
 </main>
+
+<?php endwhile; ?>
 
 <?php get_footer(); ?>
