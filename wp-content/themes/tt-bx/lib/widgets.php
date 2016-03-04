@@ -150,9 +150,9 @@ class NewsBlog_Widget extends \WP_Widget {
                             $datestr = date_format(date_create($p->post_date), 'm.d.y');
                             $link = get_permalink($p->ID);
                             ?>
-                                <p style="padding-left: 2em; text-indent: -2em;">
+                                <p style="border-bottom:1px solid grey;padding-bottom:1.0em;">
                                 <a href="<?php echo $link; ?>">
-				<time style="font-weight: bold;"><?php echo $datestr; ?>:</time>
+<!-- 				<span style="font-weight: bold;padding-right:0.5em;"><?php echo $datestr; ?>:</span> -->
 				<?php echo $p->post_title; ?>
 				</a>
                                 </p>
