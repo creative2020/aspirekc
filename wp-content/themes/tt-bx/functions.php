@@ -106,6 +106,9 @@ add_action('wp_enqueue_scripts', function() {
 
     wp_enqueue_style('theme-main',
         get_stylesheet_directory_uri().'/main.less');
+        
+    wp_enqueue_style('style-main',
+        get_stylesheet_directory_uri().'/style.css');    
 
     wp_enqueue_style('google-fonts',
         '//fonts.googleapis.com/css?family=Oswald:400,700');
@@ -114,3 +117,32 @@ add_action('wp_enqueue_scripts', function() {
         get_stylesheet_directory_uri().'/width-limiter.js',
         ['jquery'], false, false);
 });
+/**
+ * Link all post thumbnails to the post permalink.
+ *
+ * @param string $html          Post thumbnail HTML.
+ * @param int    $post_id       Post ID.
+ * @param int    $post_image_id Post image ID.
+ * @return string Filtered post image HTML.
+ */
+function wpdocs_post_image_html( $html, $post_id, $post_image_id ) {
+    $html = '<a href="' . get_permalink( $post_id ) . '" alt="' . esc_attr( get_the_title( $post_id ) ) . '">' . $html . '</a>';
+    return $html;
+}
+add_filter( 'post_thumbnail_html', 'wpdocs_post_image_html', 10, 3 );
+/**
+ * Use first image if no featured image
+ */
+function catch_that_image() {
+  global $post, $posts;
+  $first_img = '';
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+  $first_img = $matches [1] [0];
+
+  if(empty($first_img)){ //Defines a default image
+    $first_img = "/images/default.jpg";
+  }
+  return $first_img;
+}

@@ -10,3 +10,27 @@ Version: 1.0
 	border:10px solid white;
 	height:560px;
 }
+.post-content {
+	border-top: 4px solid #192B4E;
+	margin-top: 1.0em;
+	padding-top:0.5em;
+	padding-bottom:2.0em;
+}
+.post-date {
+	background-color: #192B4E;
+	margin-top: 1.0em;
+	color:white;
+}
+.post-author {
+	color:#5b7096;
+}
+.m0 { margin:0;}
+.mt1 { margin-top:1.0em;}
+.p0 { padding:0;}
+.pt15 { padding-top:15px;}
+.pb15 { padding-bottom:15px;}
+
+/* Post images */
+.attachment-thumbnail .wp-post-image {
+	max-width: 100%;
+}
