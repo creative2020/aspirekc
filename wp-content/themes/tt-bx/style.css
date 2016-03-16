@@ -34,3 +34,13 @@ Version: 1.0
 .attachment-thumbnail .wp-post-image {
 	max-width: 100%;
 }
+
+.rule-top {
+	border-top:1.0em solid #e3e3e3;
+}
+.row .callout {
+	background-color:#e3e3e3;
+}
+iframe {
+	padding:2.0em 1.0em;
+}
