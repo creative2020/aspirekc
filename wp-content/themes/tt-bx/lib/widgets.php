@@ -45,9 +45,36 @@ class Text_Widget extends \WP_Widget {
 		}
 		echo '</span><br>';
 
-		if ( !empty( $instance['line1'] ) ) echo $instance['line1'] . '<br>';
-		if ( !empty( $instance['line2'] ) ) echo $instance['line2'] . '<br>';
-		if ( !empty( $instance['line3'] ) ) echo $instance['line3'] . '<br>';
+		if ( !empty( $instance['line1'] ) ) {
+			if ( !empty( $instance['line1-ref'] ) ) {
+				echo '<a href="' . $instance['line1-ref'] . '">';
+			}
+			echo $instance['line1'];
+			if ( !empty( $instance['line1-ref'] ) ) {
+				echo '</a>';
+			}
+			echo '<br>';
+		}
+		if ( !empty( $instance['line2'] ) ) {
+			if ( !empty( $instance['line2-ref'] ) ) {
+				echo '<a href="' . $instance['line2-ref'] . '">';
+			}
+			echo $instance['line2'];
+			if ( !empty( $instance['line2-ref'] ) ) {
+				echo '</a>';
+			}
+			echo '<br>';
+		}
+		if ( !empty( $instance['line3'] ) ) {
+			if ( !empty( $instance['line3-ref'] ) ) {
+				echo '<a href="' . $instance['line3-ref'] . '">';
+			}
+			echo $instance['line3'];
+			if ( !empty( $instance['line3-ref'] ) ) {
+				echo '</a>';
+			}
+			echo '<br>';
+		}
 
 		echo '<span class="footer">';
         if ( ! empty($instance['footer-ref'] ) ) {
@@ -88,16 +115,34 @@ class Text_Widget extends \WP_Widget {
             value="<?php echo esc_attr( $instance['header-ref'] ); ?>">
 		</p>
 		<p>
-		<label><?php _e( 'Details:' ); ?></label> 
-		<input class="widefat" id="<?php echo $this->get_field_id( 'line1' ); ?>"
+		<label><?php _e( 'Details:' ); ?></label><br>
+		<input id="<?php echo $this->get_field_id( 'line1' ); ?>"
             name="<?php echo $this->get_field_name( 'line1' ); ?>" type="text"
-            value="<?php echo esc_attr( $instance['line1'] ); ?>"><br>
-		<input class="widefat" id="<?php echo $this->get_field_id( 'line2' ); ?>"
+            value="<?php echo esc_attr( $instance['line1'] ); ?>"
+			placeholder="text">
+		<input id="<?php echo $this->get_field_id( 'line1-ref' ); ?>"
+            name="<?php echo $this->get_field_name( 'line1-ref' ); ?>" type="url"
+            value="<?php echo esc_attr( $instance['line1-ref'] ); ?>"
+			placeholder="link">
+		<br>
+		<input id="<?php echo $this->get_field_id( 'line2' ); ?>"
             name="<?php echo $this->get_field_name( 'line2' ); ?>" type="text"
-            value="<?php echo esc_attr( $instance['line2'] ); ?>"><br>
-		<input class="widefat" id="<?php echo $this->get_field_id( 'line3' ); ?>"
+            value="<?php echo esc_attr( $instance['line2'] ); ?>"
+			placeholder="text">
+		<input id="<?php echo $this->get_field_id( 'line2-ref' ); ?>"
+            name="<?php echo $this->get_field_name( 'line2-ref' ); ?>" type="url"
+            value="<?php echo esc_attr( $instance['line2-ref'] ); ?>"
+			placeholder="link">
+		<br>
+		<input id="<?php echo $this->get_field_id( 'line3' ); ?>"
             name="<?php echo $this->get_field_name( 'line3' ); ?>" type="text"
-            value="<?php echo esc_attr( $instance['line3'] ); ?>"><br>
+            value="<?php echo esc_attr( $instance['line3'] ); ?>"
+			placeholder="text">
+		<input id="<?php echo $this->get_field_id( 'line3-ref' ); ?>"
+            name="<?php echo $this->get_field_name( 'line3-ref' ); ?>" type="url"
+            value="<?php echo esc_attr( $instance['line3-ref'] ); ?>"
+			placeholder="link">
+		<br>
 		</p>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'footer' ); ?>"><?php _e( 'Footer:' ); ?></label> 
