@@ -26,9 +26,24 @@ class Text_Widget extends \WP_Widget {
 		echo $args['before_widget'];
 
 		if ( !empty( $instance['image'] ) ) {
+			if ( !empty( $instance['header-ref'] ) ) {
+				echo '<a href="' . $instance['header-ref'] . '">';
+			}
 			echo '<img class="head" src="' . $instance['image'] . '" style="vertical-align: top;">';
+			if ( !empty( $instance['header-ref'] ) ) {
+				echo '</a>';
+			}
 		}
-		echo '<span class="header">' . $instance['title'] . '</span><br>';
+
+		echo '<span class="header">';
+		if ( !empty( $instance['header-ref'] ) ) {
+			echo '<a href="' . $instance['header-ref'] . '">';
+		}
+		echo $instance['title'];
+		if ( !empty( $instance['header-ref'] ) ) {
+			echo '</a>';
+		}
+		echo '</span><br>';
 
 		if ( !empty( $instance['line1'] ) ) echo $instance['line1'] . '<br>';
 		if ( !empty( $instance['line2'] ) ) echo $instance['line2'] . '<br>';
@@ -61,12 +76,16 @@ class Text_Widget extends \WP_Widget {
 		<input class="widefat" id="<?php echo $this->get_field_id( 'image' ); ?>"
             name="<?php echo $this->get_field_name( 'image' ); ?>" type="text"
             value="<?php echo esc_attr( $instance['image'] ); ?>">
-		</p>
-		<p>
+		<br>
 		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Heading:' ); ?></label> 
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
             name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
             value="<?php echo esc_attr( $instance['title'] ); ?>">
+		<br>
+		<label for="<?php echo $this->get_field_id( 'header-ref' ); ?>"><?php _e( 'Header Link:' ); ?></label> 
+		<input class="widefat" id="<?php echo $this->get_field_id( 'header-ref' ); ?>"
+            name="<?php echo $this->get_field_name( 'header-ref' ); ?>" type="text"
+            value="<?php echo esc_attr( $instance['header-ref'] ); ?>">
 		</p>
 		<p>
 		<label><?php _e( 'Details:' ); ?></label> 
