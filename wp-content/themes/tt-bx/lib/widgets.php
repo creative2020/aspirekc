@@ -72,19 +72,19 @@ class Text_Widget extends \WP_Widget {
 	public function form( $instance ) {
 		?>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php _e( 'Image:' ); ?></label> 
+		<label for="<?php echo $this->get_field_id( 'image' ); ?>"><?php _e( 'Image:' ); ?></label><br>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'image' ); ?>"
             name="<?php echo $this->get_field_name( 'image' ); ?>" type="text"
             value="<?php echo esc_attr( $instance['image'] ); ?>">
 		<br>
-		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Heading:' ); ?></label> 
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Heading:' ); ?></label><br>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
             name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
             value="<?php echo esc_attr( $instance['title'] ); ?>">
 		<br>
-		<label for="<?php echo $this->get_field_id( 'header-ref' ); ?>"><?php _e( 'Header Link:' ); ?></label> 
+		<label for="<?php echo $this->get_field_id( 'header-ref' ); ?>"><?php _e( 'Header Link:' ); ?></label><br>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'header-ref' ); ?>"
-            name="<?php echo $this->get_field_name( 'header-ref' ); ?>" type="text"
+            name="<?php echo $this->get_field_name( 'header-ref' ); ?>" type="url"
             value="<?php echo esc_attr( $instance['header-ref'] ); ?>">
 		</p>
 		<p>
