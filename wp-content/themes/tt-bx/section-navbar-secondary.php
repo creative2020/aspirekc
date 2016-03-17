@@ -1,4 +1,3 @@
-<?php if(has_nav_menu('secondary')) { ?>
 <div class="row navbar navbar-secondary">
 <div class="col-xs-12">
 <nav class="navbar navbar-default">
@@ -14,13 +13,13 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar-secondary">
         <?php wp_nav_menu([
-            'theme_location' => 'secondary',
+            'theme_location' => 'main',
             'container' => false,
             'menu_class' => 'nav navbar-nav',
-            'walker' => new wp_bootstrap_navwalker(),
+			'depth' => 2,
+            'walker' => new wp_bootstrap_navwalker_secondary(),
         ]); ?>
     </div>
 </nav>
 </div>
 </div>
-<?php } ?>

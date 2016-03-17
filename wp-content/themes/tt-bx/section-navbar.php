@@ -17,7 +17,8 @@
             'theme_location' => 'main',
             'container' => false,
             'menu_class' => 'nav navbar-nav',
-            'walker' => new wp_bootstrap_navwalker(),
+			'depth' => 1,
+            'walker' => new wp_bootstrap_navwalker_main(),
         ]); ?>
     </div>
 </nav>
