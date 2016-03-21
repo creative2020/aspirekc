@@ -316,15 +316,15 @@ class Testimonial_Widget extends \WP_Widget {
             </div>
         </div>
         <?php } else { ?>
-        <div class="row tt-headline-widget-narrow">
+        <div class="row <?php echo $instance['post-type']; ?> tt-headline-widget-narrow">
             <div class="col-xs-6 col-xs-offset-3 image">
                 <a href="<?php echo $link; ?>">
                     <img class="img-responsive img-circle" src="<?php echo $fi_url; ?>" />
                 </a>
             </div>
-            <div class="col-xs-12 content">
+            <div class="col-xs-12 <?php echo $instance['post-type']; ?>-content content">
                 <a href="<?php echo $link; ?>">
-                    <span class="title"><?php echo $p->post_title; ?></span>
+                    <span class="title <?php echo $instance['post-type']; ?>-title"><?php echo $p->post_title; ?></span>
                     <?php //echo $excerpt; ?>
                 </a>
             </div>
@@ -430,7 +430,7 @@ class Headline_Widget extends \WP_Widget {
 	    <?php endif; ?>
             <div class="col-xs-<?php echo isset($fi_url) ? 10 : 12; ?> content">
                 <a href="<?php echo $link; ?>">
-                    <span class="title"><?php echo $p->post_title; ?></span>
+                    <span class="<?php echo $instance['post-type'];?> title"><?php echo $p->post_title; ?></span>
                     <?php echo $excerpt; ?>
                 </a>
             </div>

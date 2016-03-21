@@ -93,6 +93,13 @@ iframe {
 	margin-top:2.0em;
 }
 /* Widgets */
+.testimonial-content:before {
+	content:'\f10d';
+	display:block;
+	font-family:FontAwesome;
+	font-size:3.5em;
+	color:grey;
+}
 .tt-newsblog-widget {
 	margin-top:1.0em;
 	margin-bottom:1.0em;

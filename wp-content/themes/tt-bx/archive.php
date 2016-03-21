@@ -8,7 +8,7 @@
 <div class="row">
 	
 	<div class="col-sm-3 post-sidebar pull-right">
-        <?php dynamic_sidebar('tt-sidebar-page-sidebar'); ?>
+        <?php dynamic_sidebar('tt-sidebar-post-sidebar'); ?>
     </div>
 		
 		<?php while ( have_posts() ) : the_post(); ?>
@@ -16,10 +16,10 @@
 			<div class="col-sm-9 m0 p0">
 	
 				<main>
-				
-					<div class="col-sm-2 post-date mt1">
+		
+					<div class="col-xs-12 col-sm-6 post-date mt1">
 					    <h3 class="text-centered"><?php the_date('M j'); ?></h3>
-				        <div class="col-sm-12 post-thumbnail p0">
+				        <div class="col-xs-12 col-sm-12 post-thumbnail p0">
 					        
 					        <?php
 						        $post_imgtn = get_the_post_thumbnail(); 
@@ -37,7 +37,7 @@
 					        
 				
 				    	</div>
-				    	<div class="col-sm-12 post-author p0 pb15">
+				    	<div class="col-xs-12 col-sm-12 post-author p0 pb15">
 					    	by: <?php the_author_meta( 'display_name' ); ?>
 				    	</div>
 				    </div><!--/sm2-->
@@ -45,7 +45,7 @@
 				    
 				    
 				    
-				    <div class="col-sm-10 post-content">
+				    <div class="col-xs-12 col-sm-6 post-content">
 					    <a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
 				        <?php the_excerpt(); ?>
 				    </div>
