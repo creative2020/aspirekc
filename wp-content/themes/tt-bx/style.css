@@ -52,7 +52,13 @@ h2 .pre-archive {
 	font-size: 0.5em;
 	display: block;
 }
-
+/* img */
+.page-content img {
+	vertical-align:top;
+	float:left;
+	margin-right:2.0em;
+	margin-bottom:1.0em;
+}
 /* Post images */
 .attachment-thumbnail .wp-post-image {
 	max-width: 100%;
@@ -67,6 +73,11 @@ h2 .pre-archive {
 iframe {
 	padding:2.0em 1.0em;
 }
+/* Page title */
+#page-title {
+	padding-top:1.0em;
+	padding-bottom:1.8em;
+}
 /* Page Sidebar */
 .widgettitle {
 	text-align: center;
@@ -80,6 +91,15 @@ iframe {
 .tt-headline-widget-narrow {
 	text-align: center;
 	margin-top:2.0em;
+}
+/* Widgets */
+.tt-newsblog-widget {
+	margin-top:1.0em;
+	margin-bottom:1.0em;
+	padding-top:2.0em;
+}
+.tt-newsblog-widget p {
+	min-height:4.5em;
 }
 /* Post Sidebar */
 .post-sidebar ul {
