@@ -27,6 +27,7 @@ function tt_register_cpt($single, $plural = '') {
                 'title',
                 'editor',
                 'thumbnail',
+                'custom-fields',
             ),
             'taxonomies' => array('category'),
         )
