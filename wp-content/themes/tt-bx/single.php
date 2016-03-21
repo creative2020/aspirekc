@@ -2,7 +2,7 @@
 
 <?php get_template_part('section', 'navbar-secondary'); ?>
 
-<?php dynamic_sidebar('tt-sidebar-post-header'); ?>
+<?php get_template_part('section', 'page-header'); ?>
 
 <div class="row">
 	

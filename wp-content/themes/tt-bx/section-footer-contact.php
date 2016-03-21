@@ -12,4 +12,4 @@
 		<?php dynamic_sidebar('tt-sidebar-footer-right'); ?>
 	</div>
 
-</div>
+</div><!--/row-->

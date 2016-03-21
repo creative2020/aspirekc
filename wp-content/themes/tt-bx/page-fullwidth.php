@@ -3,20 +3,19 @@
 /**
  * Template Name: Full Width Page
  */
- 
- 
- get_header(); ?>
+get_header(); 
+?>
+<?php get_template_part('section', 'page-header'); ?>
+<?php get_template_part('section', 'navbar-secondary'); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-<?php dynamic_sidebar('tt-sidebar-post-header'); ?>
 
-<?php get_template_part('section', 'navbar-secondary'); ?>
 
 <main>
 
 <div class="row">
-    <div class="col-sm-12 post-content">
+    <div class="col-sm-12 page-content">
         <?php the_content(); ?>
     </div>
     

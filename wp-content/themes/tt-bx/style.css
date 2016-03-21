@@ -44,3 +44,44 @@ Version: 1.0
 iframe {
 	padding:2.0em 1.0em;
 }
+/* Page Sidebar */
+.widgettitle {
+	text-align: center;
+}
+.textwidget {
+	text-align: center;
+}
+.textwidget img{
+	text-align: center;
+}
+.tt-headline-widget-narrow {
+	text-align: center;
+	margin-top:2.0em;
+}
+/* Post Sidebar */
+.post-sidebar ul {
+	list-style-type:none;
+	padding-left:0;
+	color:#b2b2b2;
+}
+.post-sidebar ul a {
+	color:#192B4E;
+}
+.post-sidebar ul li.cat-item {
+	margin:2px;
+	padding:5px 15px;
+	background-color:#e3e3e3;
+}
+.post-sidebar ul li.cat-item:hover {
+	background-color:#192B4E;
+	color:white;
+}
+.post-sidebar ul li.cat-item:hover a {
+	background-color:#192B4E;
+	color:white;
+}
+/* Footer */
+/* Footer C */
+#footer-c {
+	background-color: #F4F5F6;
+}

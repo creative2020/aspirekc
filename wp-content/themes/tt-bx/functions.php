@@ -90,6 +90,12 @@ add_action('widgets_init', function() {
         'before_widget' => '<div>',
         'after_widget' => '</div>',
     ]);
+    register_sidebar([
+        'name' => 'Page Sidebar',
+        'id' => 'tt-sidebar-page-sidebar',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+    ]);
 });
 
 require_once('lib/customizer.php');
