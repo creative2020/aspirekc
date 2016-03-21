@@ -295,6 +295,8 @@ class Testimonial_Widget extends \WP_Widget {
         ]);
         $p = $testimonials[0];
         $excerpt = tt_get_excerpt($p);
+        $testimonial_name = get_post_meta( $p->ID, $key = 'testimonial_name', $single = true );
+        $testimonial_company = get_post_meta( $p->ID, $key = 'testimonial_company', $single = true );
         $link = get_permalink($p->ID);
         $fi_url = wp_get_attachment_image_src( get_post_thumbnail_id($p->ID), 'hard512' )[0];
         $display_style = isset($instance['display-style']) ? $instance['display-style'] : 'wide';
@@ -325,7 +327,9 @@ class Testimonial_Widget extends \WP_Widget {
             <div class="col-xs-12 <?php echo $instance['post-type']; ?>-content content">
                 <a href="<?php echo $link; ?>">
                     <span class="title <?php echo $instance['post-type']; ?>-title"><?php echo $p->post_title; ?></span>
-                    <?php //echo $excerpt; ?>
+                    <?php echo $excerpt; ?>
+                    <span class="testimonial-name"><?php echo $testimonial_name; ?></span>
+                    <span class="testimonial-company"><?php echo $testimonial_company; ?></span>
                 </a>
             </div>
         </div>
