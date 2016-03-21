@@ -30,6 +30,29 @@ Version: 1.0
 .pt15 { padding-top:15px;}
 .pb15 { padding-bottom:15px;}
 
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Oswald', sans-serif;
+	color: #0C88D2;
+}
+h1:hover, h2:hover {
+	color:#0C274E;
+}
+a:hover {
+	text-decoration: none;
+}
+h2 {
+font-size: 2.5em;
+}
+#page-title h2,
+.post-date h3 {
+	color:white;
+}
+h2 .pre-archive {
+	color:white;
+	font-size: 0.5em;
+	display: block;
+}
+
 /* Post images */
 .attachment-thumbnail .wp-post-image {
 	max-width: 100%;
