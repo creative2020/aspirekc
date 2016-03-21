@@ -1,8 +1,7 @@
 <?php get_header(); ?>
-
+<?php get_template_part('section', 'page-header'); ?>
 <?php get_template_part('section', 'navbar-secondary'); ?>
 
-<?php get_template_part('section', 'page-header'); ?>
 
 <div class="row">
 	

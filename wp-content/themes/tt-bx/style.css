@@ -30,9 +30,15 @@ Version: 1.0
 .pt15 { padding-top:15px;}
 .pb15 { padding-bottom:15px;}
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,h7 {
 	font-family: 'Oswald', sans-serif;
 	color: #0C88D2;
+}
+h3, h5 {
+	color:#192B4E;
+}
+h6, h7 {
+	color:grey;
 }
 h1:hover, h2:hover {
 	color:#0C274E;
@@ -126,6 +132,13 @@ iframe {
 }
 .tt-newsblog-widget p {
 	min-height:4.5em;
+}
+.tt-newsblog-widget .col-sm-4 p {
+	border-bottom:1px solid grey;padding-bottom:1.0em;
+}
+
+.tt-newsblog-widget .col-sm-4 p:last-of-type {
+	border-bottom:0px;
 }
 /* Post Sidebar */
 .post-sidebar ul {
