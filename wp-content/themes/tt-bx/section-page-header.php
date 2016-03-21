@@ -14,7 +14,7 @@
 		} elseif (is_post_type_archive( 'testimonial' )) {
 			echo 'Testimonials';
 		} elseif (is_archive()) {
-			echo 'Archive: '.$cat_name;
+			echo '<span class="pre-archive">Articles on:</span> '.$cat_name;
 		} else {
 			echo $post->post_title;
 		}
