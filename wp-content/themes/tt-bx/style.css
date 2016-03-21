@@ -100,6 +100,10 @@ iframe {
 	font-size:3.5em;
 	color:grey;
 }
+.testimonial-title {
+	display:block;
+	color:#192B4E;
+}
 .testimonial-name:before {
 	content:'- ';
 	color:grey;
