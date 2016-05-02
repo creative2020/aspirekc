@@ -300,9 +300,17 @@ class Testimonial_Widget extends \WP_Widget {
         $link = get_permalink($p->ID);
         $fi_url = wp_get_attachment_image_src( get_post_thumbnail_id($p->ID), 'hard512' )[0];
         $display_style = isset($instance['display-style']) ? $instance['display-style'] : 'wide';
+        $link_type = isset($instance['link-type']) ? $instance['link-type'] : 'post';
+        $link_page = isset($instance['link-page']) ? $instance['link-page'] : '/testimonial';
 		echo $args['before_widget'];
         ?>
+        <?php if($link_type == 'page') {
+	        $link = $link_page;
+        }?>
         <?php if($display_style=='wide') { ?>
+        
+        
+        
         <div class="row tt-headline-widget" style="background-color: <?php echo $instance['background-color']; ?>">
             <div class="col-xs-1 symbol"><i class="fa fa-quote-left" style="color: <?php echo $instance['quote-color']; ?>;"></i></div>
             <div class="col-xs-9 content">
@@ -367,6 +375,8 @@ class Testimonial_Widget extends \WP_Widget {
 		</p>
         <?php
             $display_style = isset($instance['display-style']) ? $instance['display-style'] : 'wide';
+            $link_type = isset($instance['link-type']) ? $instance['link-type'] : 'post';
+            $link_page = isset($instance['link-page']) ? $instance['link-page'] : '/testimonial';
         ?>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'display-style' ); ?>"><?php _e( 'Display Style:' ); ?></label> 
@@ -375,6 +385,23 @@ class Testimonial_Widget extends \WP_Widget {
 		<input type="radio" name="<?php echo $this->get_field_name( 'display-style' ); ?>"
             value="narrow" <?php if ($display_style=='narrow') echo 'checked'; ?>>Narrow
 		</p>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'link-type' ); ?>"><?php _e( 'Link to:' ); ?></label> 
+		<input type="radio" name="<?php echo $this->get_field_name( 'link-type' ); ?>"
+            value="post" <?php if ($link_type=='post') echo 'checked'; ?>>Post
+		<input type="radio" name="<?php echo $this->get_field_name( 'link-type' ); ?>"
+            value="page" <?php if ($link_type=='page') echo 'checked'; ?>>Page
+		</p>
+		
+			<p>
+			<label for="<?php echo $this->get_field_id( 'link-page' ); ?>"><?php _e( 'Link page:' ); ?></label> 
+			<input class="widefat" id="<?php echo $this->get_field_id( 'link-page' ); ?>"
+	            name="<?php echo $this->get_field_name( 'link-page' ); ?>" type="text"
+	            value="<?php echo esc_attr( $instance['link-page'] ); ?>">
+			</p>
+		
+		
+		
 		<?php 
 	}
 } // class Testimonial_Widget
