@@ -2,10 +2,15 @@
 
 add_shortcode( 'post', function($args) {
 	$type = isset($args['type']) ? $args['type'] : 'post';
+	$orderby = isset($args['orderby']) ? $args['orderby'] : 'none';
 	if ( isset($args['slug']) ) {
 		$post = get_page_by_path($args['slug'], OBJECT, $type);
 	} else {
-		$criteria = [ 'numberposts' => 1, 'post_type' => $type ];
+		$criteria = [ 
+			'numberposts' => 1, 
+			'post_type' => $type,
+			'orderby' => $orderby
+			];
 		if ( isset($args['offset']) ) $criteria['offset'] = $args['offset'];
 		$posts = get_posts( $criteria );
 		$post = $posts[0];
