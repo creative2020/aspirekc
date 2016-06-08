@@ -32,8 +32,8 @@
 			    <div class="col-sm-10 post-content">
 				    <a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
 			        <?php the_excerpt(); ?>
-			        <div class="testimonial-name"><?php get_post_custom_values('testimonial_name'); ?></div>
-			        <div class="testimonial-company"><?php get_post_custom_values('testimonial_company'); ?></div>
+			        <div class="testimonial-name"><?php echo get_post_custom_values('testimonial_name'); ?></div>
+			        <div class="testimonial-company"><?php echo get_post_custom_values('testimonial_company'); ?></div>
 			    </div>
 			
 			</main>
