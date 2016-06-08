@@ -1,5 +1,7 @@
 <footer id="footer">
-	<h3>From the Blog</h3>
+	<div class="row">
+		<h3>From the Blog</h3>
+	</div>
 
 <?php
     dynamic_sidebar('tt-sidebar-footer-c');
