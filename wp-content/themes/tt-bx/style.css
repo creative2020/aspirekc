@@ -167,6 +167,9 @@ iframe {
 	background-color:#192B4E;
 	color:white;
 }
+.textwidget img{
+	margin:1.5em auto;
+}
 /* Footer */
 /* Footer C */
 #footer-c {
