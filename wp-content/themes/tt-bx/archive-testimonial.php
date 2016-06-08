@@ -34,7 +34,7 @@
 			    
 			    
 			    <div class="col-sm-10 post-content">
-				    <a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
+				    <h2><?php the_title(); ?></h2>
 			        <?php the_excerpt(); ?>
 			        <div class="testimonial-name"><?php echo $name[0]; ?></div>
 			        <div class="testimonial-company"><?php echo $company[0];  ?></div>
