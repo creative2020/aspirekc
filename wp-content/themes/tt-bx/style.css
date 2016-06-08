@@ -177,7 +177,7 @@ iframe {
 }
 /* Mobile */
 
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 480px) {
 
 .count-4,
 .count-2 {
