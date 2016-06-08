@@ -208,7 +208,7 @@ class NewsBlog_Widget extends \WP_Widget {
 		    $i = 0;
 		    foreach ($blogs as $p) {
 			if ($i > 0 && $i % $rowcount == 0)
-			    echo '</div><!--/.col-sm-4--><div class="col-sm-4 count-.'$i'">';
+			    echo '</div><!--/.col-sm-4--><div class="col-sm-4 count-'.$i.'">';
 
                         //<!--<span class="header">Blog</span><br>-->
                             $datestr = date_format(date_create($p->post_date), 'm.d.y');
