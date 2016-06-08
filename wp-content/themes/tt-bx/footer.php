@@ -1,6 +1,8 @@
 <footer id="footer">
 	<div class="row">
-		<h3>From the Blog</h3>
+		<div class="col-sm-12">
+			<h3>From the Blog</h3>
+		</div>
 	</div>
 
 <?php
