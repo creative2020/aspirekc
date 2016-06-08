@@ -175,3 +175,14 @@ iframe {
 #footer-c {
 	background-color: #F4F5F6;
 }
+/* Mobile */
+
+@media screen and (min-width: 480px) {
+
+.count-4,
+.count-2 {
+	display:none;
+}
+
+} /* mobile */
+
