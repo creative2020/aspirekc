@@ -56,6 +56,16 @@
 	
 <?php endwhile; ?>
 
+	<div class="col-xs-12 col-sm-9 m0 p0">
+		<p><?php
+			the_posts_pagination( [
+				'prev_text'          => __( 'Previous page', 'tt-bx' ),
+				'next_text'          => __( 'Next page', 'tt-bx' ),
+				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'tt-bx' ) . ' </span>',
+			] );
+		?></p>
+	</div>
+
 </div><!--/row-->
 
 <?php get_footer(); ?>

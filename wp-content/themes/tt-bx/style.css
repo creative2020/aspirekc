@@ -186,3 +186,23 @@ iframe {
 
 } /* mobile */
 
+/* pagination */
+
+nav.pagination .screen-reader-text {
+	display: none;
+}
+
+nav.pagination .nav-links .current,
+nav.pagination .nav-links a {
+	padding: 0.5em 1em;
+	color: white;
+}
+nav.pagination .nav-links .current {
+	background-color: #EBC511;
+}
+nav.pagination .nav-links a {
+	background-color: #017AAF;
+}
+nav.pagination .nav-links a:hover {
+	background-color: #192B4E;
+}
