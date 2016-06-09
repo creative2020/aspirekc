@@ -313,25 +313,29 @@ class Testimonial_Widget extends \WP_Widget {
         
         <div class="row tt-headline-widget" style="background-color: <?php echo $instance['background-color']; ?>">
             <div class="col-xs-1 symbol"><i class="fa fa-quote-left" style="color: <?php echo $instance['quote-color']; ?>;"></i></div>
-            <div class="col-xs-9 content">
+            <div class="col-xs-<?php echo empty( $fi_url ) ? '11' : '9'; ?> content">
                 <a href="<?php echo $link; ?>">
                     <span class="title"><?php echo $p->post_title; ?></span>
                     <?php echo $excerpt; ?>
                 </a>
             </div>
-            <div class="col-xs-2 image">
-                <a href="<?php echo $link; ?>">
-                    <img class="img-responsive img-circle" src="<?php echo $fi_url; ?>" />
-                </a>
-            </div>
+			<?php if( ! empty( $fi_url ) ) { ?>
+				<div class="col-xs-2 image">
+					<a href="<?php echo $link; ?>">
+						<img class="img-responsive img-circle" src="<?php echo $fi_url; ?>" />
+					</a>
+				</div>
+			<?php } ?>
         </div>
         <?php } else { ?>
         <div class="row <?php echo $instance['post-type']; ?> tt-headline-widget-narrow">
-            <div class="col-xs-6 col-xs-offset-3 image">
-                <a href="<?php echo $link; ?>">
-                    <img class="img-responsive img-circle" src="<?php echo $fi_url; ?>" />
-                </a>
-            </div>
+			<?php if( ! empty( $fi_url ) ) { ?>
+				<div class="col-xs-6 col-xs-offset-3 image">
+					<a href="<?php echo $link; ?>">
+						<img class="img-responsive img-circle" src="<?php echo $fi_url; ?>" />
+					</a>
+				</div>
+			<?php } ?>
             <div class="col-xs-12 <?php echo $instance['post-type']; ?>-content content">
                 <a href="<?php echo $link; ?>">
                     <span class="title <?php echo $instance['post-type']; ?>-title"><?php echo $p->post_title; ?></span>
