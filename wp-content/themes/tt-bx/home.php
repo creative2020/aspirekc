@@ -14,8 +14,6 @@
 
 	<div class="col-xs-12 col-sm-9 m0 p0">
 	
-		<main>
-		
 			<div class="col-xs-12 col-sm-6 post-date mt1">
 			    <h3 class="text-centered"><?php the_date('M j'); ?></h3>
 		        <div class="col-xs-12 col-sm-12 post-thumbnail p0">
@@ -48,8 +46,6 @@
 			    <a href="<?php the_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
 		        <?php the_excerpt(); ?>
 		    </div>
-		
-		</main>
 		
 	</div><!--col-->
 	
