@@ -5,10 +5,6 @@
 <?php get_template_part('section', 'navbar-secondary'); ?>
 
 <div class="row">
-	
-	<div class="col-sm-3 post-sidebar pull-right">
-        <?php dynamic_sidebar('tt-sidebar-post-sidebar'); ?>
-    </div>
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -37,6 +33,10 @@
 	</main>
 
 	</div><!--/col-->
+	
+	<div class="col-sm-3 post-sidebar">
+        <?php dynamic_sidebar('tt-sidebar-post-sidebar'); ?>
+    </div>
 
 </div><!--/row-->
 
