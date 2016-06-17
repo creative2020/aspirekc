@@ -251,6 +251,12 @@ class wp_bootstrap_navwalker_secondary extends Walker_Nav_Menu {
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 
+	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
+		if ( $depth !== 1 || $item->menu_item_parent != $this->current_level0_item_id )
+			return;
+		parent::end_el( $output, $item, $depth, $args );
+	}
+
 	/**
 	 * Traverse elements to create list from elements.
 	 *

@@ -4,7 +4,6 @@
 
 <?php get_template_part('section', 'navbar-secondary'); ?>
 
-
 <div class="row">
 	
 	<div class="col-sm-3 post-sidebar pull-right hidden-xs">
