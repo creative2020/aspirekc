@@ -1,3 +1,5 @@
+RedirectMatch permanent /Blog/(.*) /$1
+RedirectMatch permanent /\d{4}/\d{2}/\d{2}/(.*) /$1
 
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
