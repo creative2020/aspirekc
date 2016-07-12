@@ -21,6 +21,11 @@ Version: 1.0
 	padding-top:0.5em;
 	padding-bottom:2.0em;
 }
+#comments {
+	border-top: 4px solid #192B4E;
+	margin-top: 1.0em;
+	padding-top:0.5em;
+}
 .post-date {
 	background-color: #192B4E;
 	margin-top: 1.0em;
