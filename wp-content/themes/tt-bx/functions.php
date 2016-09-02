@@ -96,6 +96,12 @@ add_action('widgets_init', function() {
         'before_widget' => '<div>',
         'after_widget' => '</div>',
     ]);
+    register_sidebar([
+        'name' => 'Above Blog',
+        'id' => 'tt-above-blog',
+        'before_widget' => '<div>',
+        'after_widget' => '</div>',
+    ]);
 });
 
 require_once('lib/customizer.php');

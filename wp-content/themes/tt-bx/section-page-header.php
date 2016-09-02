@@ -16,6 +16,8 @@
 					echo 'Testimonials';
 				} elseif (is_archive()) {
 					echo '<span class="pre-archive">Articles on:</span> '.$cat_name;
+				} elseif (is_search()) {
+					echo 'Search Results';
 				} else {
 					echo $post->post_title;
 				}

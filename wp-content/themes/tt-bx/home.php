@@ -8,6 +8,8 @@
 
 	<div class="col-xs-12 col-sm-9">
 
+		<?php dynamic_sidebar('tt-above-blog'); ?>
+
 		<div class="row">
 
 			<?php while ( have_posts() ) : the_post(); ?>

@@ -6,6 +6,11 @@ Author URI: http://2020creative.com
 Version: 1.0
 */
 
+/*
+ * dark blue: #192b4e
+ * yellow: #fbe195
+ */
+
 /* Removes categories from slider posts due to character limits */
 .tp-tab-title {
 	display:none;
@@ -209,4 +214,21 @@ nav.pagination .nav-links a {
 }
 nav.pagination .nav-links a:hover {
 	background-color: #192B4E;
+}
+
+/* search form on the blog page */
+form.searchform {
+	font-size: 125%;
+}
+form.searchform label {
+	display: none;
+}
+form.searchform #searchsubmit {
+	background-color: rgb(248,190,20);
+	border-color: rgb(248,190,20);
+}
+form.searchform input {
+	border: 1px solid;
+	padding-top: 1px;
+	padding-bottom: 1px;
 }
