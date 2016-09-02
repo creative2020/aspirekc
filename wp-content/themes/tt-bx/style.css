@@ -226,6 +226,7 @@ form.searchform label {
 form.searchform #searchsubmit {
 	background-color: rgb(248,190,20);
 	border-color: rgb(248,190,20);
+	color: white;
 }
 form.searchform input {
 	border: 1px solid;
